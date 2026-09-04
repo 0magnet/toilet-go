@@ -1,0 +1,5 @@
+exit 1
+--- stdout
+Try `toilet --help' for more information.
+--- stderr
+toilet: unrecognized option '--nope'

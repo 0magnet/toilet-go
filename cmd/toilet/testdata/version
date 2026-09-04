@@ -1,0 +1,17 @@
+exit 0
+--- stdout
+TOIlet Copyright 2006 Sam Hocevar
+Internet: <sam@hocevar.net> Version: 0.3, date:   
+
+TOIlet, along with the various TOIlet fonts and documentation, may be
+freely copied and distributed.
+
+If you use TOIlet, please send an e-mail message to <sam@hocevar.net>.
+
+The latest version of TOIlet is available from the web site,
+        http://libcaca.zoy.org/toilet.html
+
+Usage: toilet [ -hkostvSW ] [ -d fontdirectory ]
+              [ -f fontfile ] [ -F filter ] [ -w outputwidth ]
+              [ -I infocode ] [ -E format ] [ message ]
+--- stderr

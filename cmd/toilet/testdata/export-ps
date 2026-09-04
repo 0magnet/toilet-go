@@ -1,0 +1,154 @@
+exit 0
+--- stdout
+%!
+%% libcaca PDF export
+%%LanguageLevel: 2
+%%Pages: 1
+%%DocumentData: Clean7Bit
+/csquare {
+  newpath
+  0 0 moveto
+  0 1 rlineto
+  1 0 rlineto
+  0 -1 rlineto
+  closepath
+  setrgbcolor
+  fill
+} def
+/S {
+  Show
+} bind def
+/Courier-Bold findfont
+8 scalefont
+setfont
+gsave
+6 10 scale
+0 4 translate
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+-5 1 translate
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+-5 1 translate
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+-5 1 translate
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+1 0 translate
+ 1.000000 1.000000 1.000000 csquare
+-5 1 translate
+grestore
+0 40 translate
+newpath
+6 32 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+12 32 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+( ) show
+newpath
+18 32 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+24 32 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+30 32 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+( ) show
+newpath
+6 22 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+12 22 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+18 22 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+24 22 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+30 22 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+( ) show
+newpath
+6 12 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+12 12 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+( ) show
+newpath
+18 12 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+24 12 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+30 12 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+( ) show
+newpath
+6 2 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+12 2 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+( ) show
+newpath
+18 2 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+24 2 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+newpath
+30 2 moveto
+0.666667 0.666667 0.666667 setrgbcolor
+(?) show
+showpage
+--- stderr

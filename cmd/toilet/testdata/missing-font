@@ -1,0 +1,4 @@
+exit 255
+--- stdout
+--- stderr
+error: could not load font nosuchfont

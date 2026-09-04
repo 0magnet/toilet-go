@@ -1,0 +1,4 @@
+exit 255
+--- stdout
+--- stderr
+unknown filter near `bogus'

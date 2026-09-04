@@ -54,8 +54,10 @@ type Renderer struct {
 	rule      int
 
 	x, y, w, h int
-	// Lines counts the rows flushed so far. The rainbow and metal filters use
-	// it so that their pattern runs on across a multi-line render.
+	// Lines counts the rows flushed so far. libcaca keeps this counter so that
+	// a colour effect can run on across a multi-line render; toilet's filters
+	// read a second counter of their own, which never advances, so nothing in
+	// the command uses this one.
 	Lines int
 }
 

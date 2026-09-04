@@ -1,0 +1,4 @@
+exit 0
+--- stdout
+[0;31mred[0m plain
+--- stderr

@@ -1,0 +1,9 @@
+exit 0
+--- stdout
+  A   BBBB   CCC  
+ A A  B   B C   C 
+AAAAA BBBB  C     
+A   A B   B C   C 
+A   A BBBB   CCC  
+                  
+--- stderr

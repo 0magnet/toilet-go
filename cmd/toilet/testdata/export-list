@@ -1,0 +1,16 @@
+exit 0
+--- stdout
+Available export formats:
+"caca": native libcaca format
+"ansi": ANSI
+"utf8": UTF-8 with ANSI escape codes
+"utf8cr": UTF-8 with ANSI escape codes and MS-DOS \r
+"html": HTML
+"html3": backwards-compatible HTML
+"bbfr": BBCode (French)
+"irc": IRC with mIRC colours
+"ps": PostScript document
+"svg": SVG vector image
+"tga": TGA image
+"troff": troff source
+--- stderr

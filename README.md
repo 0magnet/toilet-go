@@ -103,17 +103,20 @@ comparing stdout, stderr and exit status:
 | 24 TOIlet `.tlf` fonts + `term` × 6 modes × 25 texts | 3,750 | all identical |
 | 12 fonts × 13 widths × 3 layouts | 468 | all identical |
 | 24 filter chains × 5 fonts × 3 texts | 360 | all identical |
-| 11 export formats × 5 fonts × 4 renders | 212 | all identical |
+| 10 export formats × 5 fonts × 4 renders, plus TGA × 3 fonts × 4 texts | 212 | all identical |
 | 20 stdin corpora × 5 fonts × 3 option sets | 300 | all identical |
 | Option parsing, infocodes, errors, compressed fonts | 84 | all identical |
 | Fuzz: random text × random fonts, modes, filters, widths, formats | 29,999 | all identical |
+
+(The fuzzer ran 30,000 cases over six seeds; the one left out is the crash
+described below, where there is no C output to compare against.)
 
 The corpus covers every layout mode, the smushing characters, hardblanks,
 Unicode and fullwidth text, malformed UTF-8, ANSI escape sequences in the
 input, embedded NUL bytes, form feeds, lines longer than the original's 1024
 byte buffer, and gzipped and zipped font files. The fuzzer generates text
 biased towards the characters the smushing rules care about, with occasional
-random code points, across six seeds.
+random code points.
 
 The `.flf` fonts came from the figlet source tree; they are used for testing
 only and are not redistributed here.
@@ -233,10 +236,10 @@ gocloc --not-match-d='(vendor|node_modules|\.git)' .
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Go                              25            642            638           4302
-Markdown                         1             51              0            191
+Go                              25            641            640           4297
+Markdown                         1             52              0            193
 YAML                             1              0              7             98
 -------------------------------------------------------------------------------
-TOTAL                           27            693            645           4591
+TOTAL                           27            693            647           4588
 -------------------------------------------------------------------------------
 ```

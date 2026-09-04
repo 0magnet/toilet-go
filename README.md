@@ -2,8 +2,21 @@
 
 A Go port of [TOIlet](https://github.com/cacalabs/toilet) 0.3 by Sam Hocevar,
 the FIGlet replacement from the libcaca project. It renders text with FIGlet
-and TOIlet fonts, colours and turns the result with filters, and writes it out
+and TOIlet fonts, colors and turns the result with filters, and writes it out
 in any of libcaca's export formats.
+
+**Live demo** — `toilet` runs in a browser tab as a command in
+[tuiwasm](https://0magnet.github.io/tuiwasm/)'s shell window, which registers
+it from this package. Open the shell and type:
+
+```
+toilet -f smblock hello | lolcat
+```
+
+That is a real pipeline through websh's interpreter, into
+[lolcat-go](https://github.com/0magnet/lolcat-go). The applet carries a subset
+of the options — `-f`, `-F`, `-w` and the layout modes — and refuses the rest
+rather than pretending; the full CLI is the binary below.
 
 No cgo, no libcaca — a single static binary with the TOIlet font collection
 built in.
@@ -81,7 +94,7 @@ the various TOIlet fonts and documentation, may be freely copied and
 distributed."* The wording is quoted in full in `fonts/LICENSE`.
 
 Fonts from the **figlet** collection are deliberately **not** bundled. They are
-the work of many authors under many licences, several of which do not permit
+the work of many authors under many licenses, several of which do not permit
 redistribution. Install them yourself — Debian and Ubuntu have `figlet`,
 Arch has `figlet`, Homebrew has `figlet` — and point `-d` at the directory:
 
@@ -126,14 +139,14 @@ reproducible:
 
 - **`-E tga`** rasterises the canvas with libcaca's built-in bitmap font and
   `malloc`s the pixel buffer without clearing it. Cells whose glyph is missing
-  from that font are left untouched, so the file contains uninitialised heap;
+  from that font are left untouched, so the file contains uninitialized heap;
   three consecutive runs of the C binary produce three different files. This
   port writes zeroes there. Where every glyph *is* in the font, TGA output is
   byte-identical, and those cases are in the table above.
-- **`-E troff`** indexes a sixteen-entry colour table with libcaca's colour
+- **`-E troff`** indexes a sixteen-entry color table with libcaca's color
   constants, which reach 0x20 for transparent, and prints whatever lies past
   the end of the array — in practice `\m[]` and `\M[(null)]`. This port masks
-  the index instead and emits a real colour name.
+  the index instead and emits a real color name.
 
 ## Differences from the original
 
@@ -148,20 +161,20 @@ reproducible:
   render.
 - The two export formats above.
 
-Everything else is deliberately faithful, including behaviour that is more
+Everything else is deliberately faithful, including behavior that is more
 accident than design:
 
-- The colour filters shift their pattern by a line counter that TOIlet
-  initialises and never advances, so the second line of a multi-line render is
-  coloured exactly like the first. The counter that does advance lives inside
+- The color filters shift their pattern by a line counter that TOIlet
+  initializes and never advances, so the second line of a multi-line render is
+  colored exactly like the first. The counter that does advance lives inside
   libcaca's figfont state and is not the one the filters read.
 - Smushing rule 6, which merges two hardblanks, is unreachable: libcaca guards
   rules 2 to 6 behind "both characters below U+0080" and holds a hardblank as
   U+00A0. Rule 1 refuses hardblank pairs outright, so hardblanks never smush at
   all — which is what keeps the column they hold open.
 - A glyph's attribute is written at the column the glyph started in rather than
-  the column it landed in after smushing, so a coloured render is offset from
-  the characters it colours.
+  the column it landed in after smushing, so a colored render is offset from
+  the characters it colors.
 - A blank line or a negative code tag inside a font still consumes a glyph
   slot, which shifts every later glyph up by one. `ivrit.flf` renders wrong in
   both implementations, in the same way.
@@ -203,7 +216,7 @@ _ = cx.Render([]string{"Hello"}, nil, os.Stdout)
 `figlet.Smush` exposes the smushing rules on their own, and the `canvas`
 package has the libcaca canvas operations the renderer is built on.
 
-## Licence
+## License
 
 WTFPL, the same as TOIlet and libcaca. See `LICENSE`.
 
@@ -211,7 +224,7 @@ Original TOIlet is copyright © 2006 Sam Hocevar <sam@hocevar.net>; libcaca is
 copyright © 2002-2021 Sam Hocevar and Jean-Yves Lamoureux
 <jylam@lnxscene.org>.
 
-The bundled fonts are separate works under their own licence; see
+The bundled fonts are separate works under their own license; see
 `fonts/LICENSE`.
 
 ## Dependency Graph

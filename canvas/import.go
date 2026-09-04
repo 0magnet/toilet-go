@@ -49,7 +49,7 @@ func DecodeUTF8(s []byte) (rune, int) {
 	}
 }
 
-// ansi2caca maps the eight ECMA-48 colours onto libcaca's palette order.
+// ansi2caca maps the eight ECMA-48 colors onto libcaca's palette order.
 var ansi2caca = [8]uint8{
 	caca.Black, caca.Red, caca.Green, caca.Brown,
 	caca.Blue, caca.Magenta, caca.Cyan, caca.LightGray,
@@ -60,14 +60,14 @@ var ansi2caca = [8]uint8{
 type importState struct {
 	clearattr uint32
 
-	fg, bg   uint8 // current colours
-	dfg, dbg uint8 // colours a reset returns to
+	fg, bg   uint8 // current colors
+	dfg, dbg uint8 // colors a reset returns to
 
 	bold, blink, italics, negative, concealed, underline bool
 	faint, strike, proportional                          bool // parsed, unused
 }
 
-// parseGRCM applies an SGR sequence and recomputes the canvas colour.
+// parseGRCM applies an SGR sequence and recomputes the canvas color.
 func (cv *Canvas) parseGRCM(im *importState, argv []uint32) {
 	for _, a := range argv {
 		switch {

@@ -1,4 +1,4 @@
-// Package toilet renders text with FIGlet fonts, applies colour and geometry
+// Package toilet renders text with FIGlet fonts, applies color and geometry
 // filters to the result and writes it out in any of libcaca's export formats.
 //
 // It is a Go port of TOIlet 0.3 by Sam Hocevar, whose own rendering and export
@@ -51,9 +51,9 @@ type Context struct {
 	Filters []string
 
 	// lines counts the rows written so far, and shifts the rainbow and metal
-	// patterns. toilet initialises it and never advances it — the counter that
+	// patterns. toilet initializes it and never advances it — the counter that
 	// does advance lives inside libcaca's figfont state and is not the one the
-	// filters read — so in practice every line is coloured alike. Kept as it
+	// filters read — so in practice every line is colored alike. Kept as it
 	// is, because it is visible in the output.
 	lines int
 

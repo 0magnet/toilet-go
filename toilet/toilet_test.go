@@ -151,7 +151,7 @@ func TestRenderTermFont(t *testing.T) {
 		t.Errorf("term font rendered %q, want %q", got, "hello\n")
 	}
 
-	// The term font is the only one that carries the input's own colours.
+	// The term font is the only one that carries the input's own colors.
 	c2 := New()
 	c2.Font = "term"
 	coloured := renderTo(t, c2, nil, "\033[31mred\033[0m\n")

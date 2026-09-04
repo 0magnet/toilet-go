@@ -266,7 +266,7 @@ func TestCodeTags(t *testing.T) {
 	}
 
 	// The blank line and the negative index each still take a slot, which is
-	// libcaca's behaviour and which shifts every later glyph.
+	// libcaca's behavior and which shifts every later glyph.
 	if f.Glyphs() != extGlyphs+5 {
 		t.Errorf("Glyphs() = %d, want %d", f.Glyphs(), extGlyphs+5)
 	}

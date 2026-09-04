@@ -250,7 +250,7 @@ func (f *Font) finish(body []byte) (*Font, error) {
 			i--
 			ch := f.cv.GetChar(i, j)
 
-			// Hardblanks become U+00A0, which smushing rule 6 recognises and
+			// Hardblanks become U+00A0, which smushing rule 6 recognizes and
 			// which the flush turns back into a space.
 			if ch == f.Hardblank {
 				ch = 0xa0

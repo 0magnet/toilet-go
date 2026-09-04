@@ -77,13 +77,13 @@ func filterCrop(cv *canvas.Canvas, _ int) {
 	cv.SetBoundaries(xmin, ymin, xmax-xmin+1, ymax-ymin+1)
 }
 
-// rainbowPalette is the six-colour cycle of the rainbow filter.
+// rainbowPalette is the six-color cycle of the rainbow filter.
 var rainbowPalette = [6]uint8{
 	caca.LightMagenta, caca.LightRed, caca.Yellow,
 	caca.LightGreen, caca.LightCyan, caca.LightBlue,
 }
 
-// filterRainbow colours the inked cells along a diagonal six-colour cycle.
+// filterRainbow colors the inked cells along a diagonal six-color cycle.
 func filterRainbow(cv *canvas.Canvas, lines int) {
 	for y := 0; y < cv.Height; y++ {
 		for x := 0; x < cv.Width; x++ {
@@ -97,12 +97,12 @@ func filterRainbow(cv *canvas.Canvas, lines int) {
 	}
 }
 
-// metalPalette is the four-colour cycle of the metal filter.
+// metalPalette is the four-color cycle of the metal filter.
 var metalPalette = [4]uint8{
 	caca.LightBlue, caca.Blue, caca.LightGray, caca.DarkGray,
 }
 
-// filterMetal colours the inked cells in wide diagonal bands.
+// filterMetal colors the inked cells in wide diagonal bands.
 func filterMetal(cv *canvas.Canvas, lines int) {
 	for y := 0; y < cv.Height; y++ {
 		for x := 0; x < cv.Width; x++ {

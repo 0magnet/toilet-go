@@ -3,7 +3,7 @@ package toilet
 import "github.com/0magnet/toilet-go/canvas"
 
 // tinyDriver is toilet's "term" font: one canvas cell per input character, with
-// the input's own colours carried through. It is a port of src/term.c.
+// the input's own colors carried through. It is a port of src/term.c.
 type tinyDriver struct {
 	cv        *canvas.Canvas
 	termWidth int

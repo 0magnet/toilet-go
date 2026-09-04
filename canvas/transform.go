@@ -188,7 +188,7 @@ func (cv *Canvas) rotate90(pairFn func(*[2]rune), index func(w2, h2, x, y int) i
 				attr2 = cv.Attrs[cv.Width*y+x*2+1]
 			}
 
-			// A space contributes no colour of its own, or the rotated pair
+			// A space contributes no color of its own, or the rotated pair
 			// would take on an attribute nothing in it was drawn with.
 			if pair[0] == ' ' {
 				attr1 = attr2

@@ -113,14 +113,14 @@ func TestImportSGR(t *testing.T) {
 		t.Errorf("reset cell foreground = %d, want %d", got, caca.Default)
 	}
 
-	// Bold brightens one of the low eight colours.
+	// Bold brightens one of the low eight colors.
 	cv2 := New(0, 0)
 	cv2.ImportUTF8([]byte("\033[1;34mB"))
 	if got := caca.AttrToANSIFg(cv2.GetAttr(0, 0)); got != caca.LightBlue {
 		t.Errorf("bold blue = %d, want %d", got, caca.LightBlue)
 	}
 
-	// Reverse video swaps the two colours.
+	// Reverse video swaps the two colors.
 	cv3 := New(0, 0)
 	cv3.ImportUTF8([]byte("\033[31;42;7mX"))
 	if fg := caca.AttrToANSIFg(cv3.GetAttr(0, 0)); fg != caca.Green {
@@ -130,7 +130,7 @@ func TestImportSGR(t *testing.T) {
 		t.Errorf("reversed background = %d, want %d", bg, caca.Red)
 	}
 
-	// Concealed text turns both colours transparent.
+	// Concealed text turns both colors transparent.
 	cv4 := New(0, 0)
 	cv4.ImportUTF8([]byte("\033[8mX"))
 	if fg := caca.AttrToANSIFg(cv4.GetAttr(0, 0)); fg != caca.Transparent {

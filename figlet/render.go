@@ -55,7 +55,7 @@ type Renderer struct {
 
 	x, y, w, h int
 	// Lines counts the rows flushed so far. libcaca keeps this counter so that
-	// a colour effect can run on across a multi-line render; toilet's filters
+	// a color effect can run on across a multi-line render; toilet's filters
 	// read a second counter of their own, which never advances, so nothing in
 	// the command uses this one.
 	Lines int
@@ -178,7 +178,7 @@ func (r *Renderer) PutChar(ch rune) {
 			}
 			// libcaca writes the glyph's attribute at the unshifted column,
 			// not at the one the character landed in. Kept as it is: it is
-			// what colours a smushed render.
+			// what colors a smushed render.
 			r.cv.PutAttr(r.x+x, r.y+y, f.cv.GetAttr(x, y+c*h))
 		}
 	}

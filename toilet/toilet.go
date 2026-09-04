@@ -125,7 +125,10 @@ func (c *Context) FontFile() []string {
 }
 
 // Init loads the font and prepares the renderer. It must be called before
-// Render.
+// Render, which calls it for you if you have not.
+//
+// The error it returns for a font it cannot find is worded as toilet words it,
+// leading "error: " and all, because the command prints it verbatim.
 func (c *Context) Init() error {
 	if strings.EqualFold(c.Font, "term") {
 		c.drv = newTinyDriver(c.TermWidth)
@@ -133,23 +136,23 @@ func (c *Context) Init() error {
 	}
 
 	var font *figlet.Font
-	var err error
 	for _, p := range c.FontFile() {
-		font, err = figlet.LoadFont(p)
-		if err == nil {
+		if f, err := figlet.LoadFont(p); err == nil {
+			font = f
 			break
 		}
 	}
 	if font == nil {
-		if data, ok := embeddedFont(c.Font); ok {
-			font, err = figlet.ParseFont(data)
+		// Nothing on disk matched, so fall back to the bundled collection.
+		// The original has no such fallback.
+		if data, ok := fonts.Get(c.Font); ok {
+			if f, err := figlet.ParseFont(data); err == nil {
+				font = f
+			}
 		}
 	}
 	if font == nil {
 		return fmt.Errorf("error: could not load font %s", c.Font)
-	}
-	if err != nil {
-		return err
 	}
 
 	r := figlet.NewRenderer(font)
@@ -293,11 +296,4 @@ func (c *Context) flush(w io.Writer) error {
 	}
 	_, err := w.Write(buf)
 	return err
-}
-
-// embeddedFont returns a bundled font by name, used when nothing on disk
-// matches. The original has no such fallback; it exists so that a `go install`
-// of toilet-go works without a font directory.
-func embeddedFont(name string) ([]byte, bool) {
-	return fonts.Get(name)
 }

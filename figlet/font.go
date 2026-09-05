@@ -204,7 +204,7 @@ func (f *Font) parseHeader(line []byte) (hardblank []byte, commentLines int, err
 	}
 	n := 1
 	for i, p := range fields {
-		// Only old_layout is scanned with "%i", which honours a 0x or 0
+		// Only old_layout is scanned with "%i", which honors a 0x or 0
 		// base prefix; the rest are plain decimal.
 		v, vok := s.number(i == 3)
 		if !vok {

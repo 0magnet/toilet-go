@@ -3,7 +3,7 @@
 //
 // These are the twenty-four fonts TOIlet itself installs, copied unmodified
 // from its source tree. They are separate works from the program and are
-// redistributed here under their own licence: each one is by Sam Hocevar and is
+// redistributed here under their own license: each one is by Sam Hocevar and is
 // covered by the WTFPL, which the hand-written fonts state in their own comment
 // block and which the generated ones inherit from TOIlet's COPYING and from its
 // version banner, "TOIlet, along with the various TOIlet fonts and
@@ -11,7 +11,7 @@
 // directory.
 //
 // Nothing else is bundled. Fonts from the figlet collection have their own
-// licences, several of which are not redistribution-friendly, so they are left
+// licenses, several of which are not redistribution-friendly, so they are left
 // to be loaded from a font directory at run time with -d.
 package fonts
 

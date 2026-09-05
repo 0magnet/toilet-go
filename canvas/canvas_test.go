@@ -218,7 +218,7 @@ func TestSetBoundaries(t *testing.T) {
 	}
 
 	// The attribute goes back to a fresh canvas' default, which is what makes
-	// the border filter draw an uncoloured box after a color filter.
+	// the border filter draw an uncolored box after a color filter.
 	cv.SetColorANSI(caca.LightRed, caca.Black)
 	cv.SetBoundaries(0, 0, 2, 2)
 	if cv.Attr() != New(1, 1).Attr() {

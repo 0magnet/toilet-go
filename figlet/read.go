@@ -145,7 +145,7 @@ func (s *scanner) word(max int) ([]byte, bool) {
 	return s.b[start:s.i], true
 }
 
-// number reads an integer. With prefixed set it behaves like "%i", honouring a
+// number reads an integer. With prefixed set it behaves like "%i", honoring a
 // 0x or leading-zero base prefix; otherwise it is plain decimal, which is what
 // "%u" accepts here.
 func (s *scanner) number(prefixed bool) (int, bool) {

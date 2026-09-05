@@ -15,7 +15,7 @@ func rotateChar(ch rune) rune { return lookupPair(ch, rotateNoRotate, rotatePair
 
 // lookupPair implements the search flipchar(), flopchar() and rotatechar()
 // share: characters in the first table are left alone, characters in the second
-// are swapped with their neighbour, and anything else is returned unchanged.
+// are swapped with their neighbor, and anything else is returned unchanged.
 func lookupPair(ch rune, fixed, pairs []rune) rune {
 	for i := 0; fixed[i] != 0; i++ {
 		if ch == fixed[i] {

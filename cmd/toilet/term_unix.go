@@ -18,7 +18,7 @@ func terminalWidth() (int, bool) {
 	for _, fd := range []uintptr{1, 2, 0} {
 		var ws winsize
 		_, _, errno := syscall.Syscall(syscall.SYS_IOCTL, fd,
-			uintptr(syscall.TIOCGWINSZ), uintptr(unsafe.Pointer(&ws)))
+			uintptr(syscall.TIOCGWINSZ), uintptr(unsafe.Pointer(&ws))) //nolint:gosec
 		if errno == 0 && ws.cols != 0 {
 			return int(ws.cols), true
 		}

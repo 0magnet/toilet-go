@@ -101,7 +101,7 @@ func (g *getopt) longOption(a string) int {
 		}
 		if strings.HasPrefix(l.name, name) {
 			if match >= 0 {
-				fmt.Fprintf(g.stderr, "%s: option '%s' is ambiguous\n", g.prog, a)
+				fmt.Fprintf(g.stderr, "%s: option '%s' is ambiguous\n", g.prog, a) //nolint:errcheck,gosec
 				g.ind++
 				return optBad
 			}
@@ -110,7 +110,7 @@ func (g *getopt) longOption(a string) int {
 	}
 
 	if match < 0 {
-		fmt.Fprintf(g.stderr, "%s: unrecognized option '%s'\n", g.prog, a)
+		fmt.Fprintf(g.stderr, "%s: unrecognized option '%s'\n", g.prog, a) //nolint:errcheck,gosec
 		g.ind++
 		return optBad
 	}
@@ -123,14 +123,14 @@ func (g *getopt) longOption(a string) int {
 		g.arg = value
 	case l.hasArg:
 		if g.ind >= len(g.argv) {
-			fmt.Fprintf(g.stderr, "%s: option '--%s' requires an argument\n",
+			fmt.Fprintf(g.stderr, "%s: option '--%s' requires an argument\n", //nolint:errcheck,gosec
 				g.prog, l.name)
 			return optBad
 		}
 		g.arg = g.argv[g.ind]
 		g.ind++
 	case hasValue:
-		fmt.Fprintf(g.stderr, "%s: option '--%s' doesn't allow an argument\n",
+		fmt.Fprintf(g.stderr, "%s: option '--%s' doesn't allow an argument\n", //nolint:errcheck,gosec
 			g.prog, l.name)
 		return optBad
 	}
@@ -155,7 +155,7 @@ func (g *getopt) shortOption(a string) int {
 	if c == ':' || i < 0 {
 		// The byte is written as it stands, not as a rune: an argument such
 		// as "-ü" makes getopt complain about each of its bytes in turn.
-		fmt.Fprintf(g.stderr, "%s: invalid option -- '%s'\n", g.prog, []byte{c})
+		fmt.Fprintf(g.stderr, "%s: invalid option -- '%s'\n", g.prog, []byte{c}) //nolint:errcheck,gosec
 		return optBad
 	}
 
@@ -170,7 +170,7 @@ func (g *getopt) shortOption(a string) int {
 			g.arg = g.argv[g.ind]
 			g.ind++
 		default:
-			fmt.Fprintf(g.stderr, "%s: option requires an argument -- '%s'\n",
+			fmt.Fprintf(g.stderr, "%s: option requires an argument -- '%s'\n", //nolint:errcheck,gosec
 				g.prog, []byte{c})
 			return optBad
 		}

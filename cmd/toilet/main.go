@@ -55,12 +55,12 @@ func run(argv []string, stdin io.Reader, stdout, stderr io.Writer) int {
 
 		switch c {
 		case 'h': // --help
-			fmt.Fprint(stdout, help, usage)
+			fmt.Fprint(stdout, help, usage) //nolint:errcheck,gosec
 			return 0
 		case 'I': // --infocode
 			infocode = atoi(g.arg)
 		case 'v': // --version
-			fmt.Fprintf(stdout, version, toilet.Version, Date, usage)
+			fmt.Fprintf(stdout, version, toilet.Version, Date, usage) //nolint:errcheck,gosec
 			return 0
 		case 'f': // --font
 			cx.Font = g.arg
@@ -68,20 +68,23 @@ func run(argv []string, stdin io.Reader, stdout, stderr io.Writer) int {
 			cx.Dir = g.arg
 		case 'F': // --filter
 			if g.arg == "list" {
-				fmt.Fprintln(stdout, "Available filters:")
+				fmt.Fprintln(stdout, "Available filters:") //nolint:errcheck,gosec
 				for _, f := range toilet.FilterList() {
-					fmt.Fprintf(stdout, "%q: %s\n", f[0], f[1])
+					fmt.Fprintf(stdout, "%q: %s\n", f[0], f[1]) //nolint:errcheck,gosec
 				}
 				return 0
 			}
 			if err := cx.AddFilter(g.arg); err != nil {
-				fmt.Fprintln(stderr, err)
+				fmt.Fprintln(stderr, err) //nolint:errcheck,gosec
 				return 255
 			}
+		// These four take names this program chose itself, so a failure would
+		// be a bug here rather than bad input. The user-supplied filter above
+		// is checked, because that one can genuinely be wrong.
 		case 130, 132: // --gay, --rainbow
-			_ = cx.AddFilter("rainbow")
+			_ = cx.AddFilter("rainbow") //nolint:errcheck
 		case 131: // --metal
-			_ = cx.AddFilter("metal")
+			_ = cx.AddFilter("metal") //nolint:errcheck
 		case 'w': // --width
 			cx.TermWidth = atoi(g.arg)
 		case 't': // --termwidth
@@ -100,22 +103,22 @@ func run(argv []string, stdin io.Reader, stdout, stderr io.Writer) int {
 			cx.Mode = "overlap"
 		case 'E': // --export
 			if g.arg == "list" {
-				fmt.Fprintln(stdout, "Available export formats:")
+				fmt.Fprintln(stdout, "Available export formats:") //nolint:errcheck,gosec
 				for _, e := range caca.ExportList() {
-					fmt.Fprintf(stdout, "%q: %s\n", e[0], e[1])
+					fmt.Fprintf(stdout, "%q: %s\n", e[0], e[1]) //nolint:errcheck,gosec
 				}
 				return 0
 			}
 			if err := cx.SetExport(g.arg); err != nil {
-				fmt.Fprintln(stderr, err)
+				fmt.Fprintln(stderr, err) //nolint:errcheck,gosec
 				return 255
 			}
 		case 140: // --irc
-			_ = cx.SetExport("irc")
+			_ = cx.SetExport("irc") //nolint:errcheck
 		case 141: // --html
-			_ = cx.SetExport("html")
+			_ = cx.SetExport("html") //nolint:errcheck
 		case optBad:
-			fmt.Fprintf(stdout, "Try `%s --help' for more information.\n", g.prog)
+			fmt.Fprintf(stdout, "Try `%s --help' for more information.\n", g.prog) //nolint:errcheck,gosec
 			return 1
 		}
 	}
@@ -123,33 +126,33 @@ func run(argv []string, stdin io.Reader, stdout, stderr io.Writer) int {
 	switch infocode {
 	case -1:
 	case 0:
-		fmt.Fprintf(stdout, version, toilet.Version, Date, usage)
+		fmt.Fprintf(stdout, version, toilet.Version, Date, usage) //nolint:errcheck,gosec
 		return 0
 	case 1:
-		fmt.Fprintln(stdout, "20201")
+		fmt.Fprintln(stdout, "20201") //nolint:errcheck,gosec
 		return 0
 	case 2:
-		fmt.Fprintln(stdout, cx.Dir)
+		fmt.Fprintln(stdout, cx.Dir) //nolint:errcheck,gosec
 		return 0
 	case 3:
-		fmt.Fprintln(stdout, cx.Font)
+		fmt.Fprintln(stdout, cx.Font) //nolint:errcheck,gosec
 		return 0
 	case 4:
 		// term_width is an unsigned int in the original, so a width set
 		// negative comes back as a large positive number.
-		fmt.Fprintln(stdout, uint32(cx.TermWidth))
+		fmt.Fprintln(stdout, uint32(cx.TermWidth)) //nolint:errcheck,gosec
 		return 0
 	default:
 		return 0
 	}
 
 	if err := cx.Init(); err != nil {
-		fmt.Fprintln(stderr, err)
+		fmt.Fprintln(stderr, err) //nolint:errcheck,gosec
 		return 255
 	}
 
 	if err := cx.Render(g.args(), stdin, stdout); err != nil {
-		fmt.Fprintln(stderr, err)
+		fmt.Fprintln(stderr, err) //nolint:errcheck,gosec
 		return 255
 	}
 

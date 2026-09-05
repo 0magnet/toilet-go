@@ -128,7 +128,7 @@ func TestGolden(t *testing.T) {
 	for _, tc := range goldenCases {
 		t.Run(tc.name, func(t *testing.T) {
 			path := filepath.Join("testdata", tc.name)
-			want, err := os.ReadFile(path)
+			want, err := os.ReadFile(path) //nolint:gosec
 			if err != nil {
 				t.Fatalf("%v (run `go test ./cmd/toilet -update` with toilet installed)", err)
 			}
@@ -163,14 +163,14 @@ func regenerate(t *testing.T) {
 	}
 
 	for _, tc := range goldenCases {
-		cmd := exec.Command("/usr/bin/toilet", goldenArgs(tc.args)[1:]...)
-		cmd.Args[0] = "toilet" // the program names itself in its error messages
+		cmd := exec.Command("/usr/bin/toilet", goldenArgs(tc.args)[1:]...) //nolint:gosec
+		cmd.Args[0] = "toilet"                                             // the program names itself in its error messages
 		cmd.Stdin = strings.NewReader(tc.stdin)
 
 		var stdout, stderr bytes.Buffer
 		cmd.Stdout = &stdout
 		cmd.Stderr = &stderr
-		_ = cmd.Run()
+		_ = cmd.Run() //nolint:errcheck
 
 		code := cmd.ProcessState.ExitCode()
 		if code < 0 {

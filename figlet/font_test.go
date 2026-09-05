@@ -21,10 +21,10 @@ func buildFont(hdr string, body func(rune) []string) []byte {
 	height, comments := 1, 0
 	fields := strings.Fields(hdr)
 	if len(fields) > 1 {
-		height, _ = strconv.Atoi(fields[1])
+		height, _ = strconv.Atoi(fields[1]) //nolint:errcheck
 	}
 	if len(fields) > 5 {
-		comments, _ = strconv.Atoi(fields[5])
+		comments, _ = strconv.Atoi(fields[5]) //nolint:errcheck
 	}
 
 	b.WriteString(hdr)

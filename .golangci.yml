@@ -65,6 +65,17 @@ linters:
       - builtin$
       - examples$
     rules:
+      # These two files carry text the original prints, and this port is
+      # verified by diffing its output against the C toilet byte for byte:
+      # `-F list` describes the filters as "add a rainbow colour effect", and
+      # --help offers "output IRC colour codes". Americanizing either would
+      # fail the comparison it exists to pass.
+      #
+      # Scoped to the files rather than turned off, so the port's own prose is
+      # still checked.
+      - linters:
+          - misspell
+        path: (toilet/filter\.go|cmd/toilet/main\.go)$
       # The staticcheck suggestions skywire turns off. They are style
       # preferences rather than defects, and the point of copying this file is
       # that the same code passes in both places.

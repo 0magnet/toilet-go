@@ -1,12 +1,4 @@
-github.com/0magnet/img2txt-go v0.0.0-20260904173429-c74418aad349 h1:MzxBcVE/BPmoJvptTesJ3AUN+A4Mh7eXDyuNIzAsQHU=
-github.com/0magnet/img2txt-go v0.0.0-20260904173429-c74418aad349/go.mod h1:kPJW6j22gkd79xpT5yGFvX4PeWAJ4KxYHofen0bIcSI=
-github.com/0magnet/img2txt-go v0.0.0-20260904191059-a45d30362d4d h1:qBbU7K4TJrITWQf3Jr0YocRrz6sG5tv1jbLqJ0iI3yI=
-github.com/0magnet/img2txt-go v0.0.0-20260904191059-a45d30362d4d/go.mod h1:kPJW6j22gkd79xpT5yGFvX4PeWAJ4KxYHofen0bIcSI=
-github.com/0magnet/img2txt-go v0.0.0-20260904191339-9727e2630cc8 h1:v0xh/VFpa3xo9SqVZxkJ1GZ78EcWo2BAkeQ52yoxL6Q=
-github.com/0magnet/img2txt-go v0.0.0-20260904191339-9727e2630cc8/go.mod h1:kPJW6j22gkd79xpT5yGFvX4PeWAJ4KxYHofen0bIcSI=
-github.com/0magnet/img2txt-go v0.0.0-20260904192107-b93c9a322c59 h1:7th7tRVKxaY4NMXW8D77hbGshCUb+UFSxpOdTpzDFEM=
-github.com/0magnet/img2txt-go v0.0.0-20260904192107-b93c9a322c59/go.mod h1:kPJW6j22gkd79xpT5yGFvX4PeWAJ4KxYHofen0bIcSI=
-github.com/0magnet/img2txt-go v0.0.0-20260904194350-65b7f4ca789e h1:+yLui1TBz6v0aS4Mjp8smm6wAQpV4vMMM2YQeWKieIQ=
-github.com/0magnet/img2txt-go v0.0.0-20260904194350-65b7f4ca789e/go.mod h1:kPJW6j22gkd79xpT5yGFvX4PeWAJ4KxYHofen0bIcSI=
+github.com/0magnet/img2txt-go v0.0.0-20260905001454-9b4ec5319d47 h1:a4UvlEUsdsqfg9PdUdxIR4zrBor8sTi4zkMwIOtqID0=
+github.com/0magnet/img2txt-go v0.0.0-20260905001454-9b4ec5319d47/go.mod h1:kPJW6j22gkd79xpT5yGFvX4PeWAJ4KxYHofen0bIcSI=
 golang.org/x/image v0.45.0 h1:FMb1nTbH5H9vF55SriQHgFw5GnNL9Jg6L25BwXKzhB0=
 golang.org/x/image v0.45.0/go.mod h1:n62x/7RqlwXDvGsSU4u6IUTUf6KghUZ9Bt7cG/T9Fx4=

@@ -87,7 +87,7 @@ var goldenCases = []struct {
 
 	{"stdin-lines", []string{"-f", "smblock"}, "one\ntwo\nthree\n"},
 	{"stdin-no-newline", []string{"-f", "smblock"}, "trailing"},
-	{"stdin-colours", []string{"-f", "term"}, "\033[31mred\033[0m plain\n"},
+	{"stdin-colors", []string{"-f", "term"}, "\033[31mred\033[0m plain\n"},
 	{"stdin-utf8", []string{"-f", "term"}, "café äöü ☃\n"},
 	{"stdin-fullwidth", []string{"-f", "term"}, "日本語\n"},
 	{"stdin-tab", []string{"-f", "term"}, "a\tb\n"},

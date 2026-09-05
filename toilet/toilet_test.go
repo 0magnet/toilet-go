@@ -154,9 +154,9 @@ func TestRenderTermFont(t *testing.T) {
 	// The term font is the only one that carries the input's own colors.
 	c2 := New()
 	c2.Font = "term"
-	coloured := renderTo(t, c2, nil, "\033[31mred\033[0m\n")
-	if !strings.Contains(coloured, "\033[") {
-		t.Errorf("term font dropped the input colours: %q", coloured)
+	colored := renderTo(t, c2, nil, "\033[31mred\033[0m\n")
+	if !strings.Contains(colored, "\033[") {
+		t.Errorf("term font dropped the input colors: %q", colored)
 	}
 }
 

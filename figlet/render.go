@@ -25,7 +25,7 @@ const (
 	ModeOverlap
 )
 
-// ParseMode maps toilet's mode names onto a Mode. Anything unrecognised is
+// ParseMode maps toilet's mode names onto a Mode. Anything unrecognized is
 // ModeDefault, as in caca_set_figfont_smush().
 func ParseMode(name string) Mode {
 	switch strings.ToLower(name) {

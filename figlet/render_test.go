@@ -13,7 +13,7 @@ func TestParseMode(t *testing.T) {
 		"smush":    ModeSmush,
 		"none":     ModeNone,
 		"overlap":  ModeOverlap,
-		"nonsense": ModeDefault, // anything unrecognised falls back
+		"nonsense": ModeDefault, // anything unrecognized falls back
 		"":         ModeDefault,
 	}
 

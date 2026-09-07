@@ -6,7 +6,7 @@ and TOIlet fonts, colors and turns the result with filters, and writes it out
 in any of libcaca's export formats.
 
 **Live demo** — `toilet` runs in a browser tab as a command in
-[tuiwasm](https://0magnet.github.io/tuiwasm/)'s shell window, which registers
+[tuiwasm](https://tuiwasm.magnetosphere.net/)'s shell window, which registers
 it from this package. Open the shell and type:
 
 ```

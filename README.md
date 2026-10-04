@@ -227,6 +227,12 @@ copyright © 2002-2021 Sam Hocevar and Jean-Yves Lamoureux
 The bundled fonts are separate works under their own license; see
 `fonts/LICENSE`.
 
+## Related projects
+
+Another Go port in the FIGlet family:
+
+- [figlet-go](https://github.com/lsferreira42/figlet-go) — a complete FIGlet 2.2.5 rewrite in Go with .tlf font support and a WebAssembly build (BSD-3)
+
 ## Dependency Graph
 
 Made with [goda](https://github.com/loov/goda):

@@ -76,12 +76,12 @@ opposite bracket pairs, the big X, and the hardblank rule.
 **Export formats.** All twelve libcaca supports: `caca`, `ansi`, `utf8`,
 `utf8cr`, `html`, `html3`, `bbfr`, `irc`, `ps`, `svg`, `tga`, `troff`.
 
-The canvas and the export codecs come from
+The cell storage and the export codecs come from
 [img2txt-go](https://github.com/0magnet/img2txt-go)'s `caca` package, which is
-already a port of that half of libcaca. This repository adds what TOIlet needs
-on top: the content-preserving resize, blitting with a handle, cropping, the
-flip and rotate transforms, the UTF-8 and ECMA-48 canvas importer, and the
-FIGfont engine itself.
+already a port of that half of libcaca. This repository's own `canvas` package
+wraps it and adds what TOIlet needs on top: the content-preserving resize,
+blitting with a handle, cropping, the flip and rotate transforms and the UTF-8
+and ECMA-48 canvas importer. The FIGfont engine is in `figlet`.
 
 ## Fonts
 
@@ -104,6 +104,9 @@ toilet -d /usr/share/figlet -f standard "Hello"
 
 `-d` and `./` are searched before the bundled collection, so a font installed
 on the system shadows a bundled one of the same name.
+
+The built-in `term` font (`-f term`) is not a FIGfont file: it draws one canvas
+cell per input character and carries the input's own colors through.
 
 ## Verification
 
@@ -255,10 +258,11 @@ gocloc --not-match-d='(vendor|node_modules|\.git)' .
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Go                              25            641            642           4297
-Markdown                         1             52              0            193
-YAML                             1              0              7             98
+Go                              25            641            648           4297
+Markdown                         1             59              0            208
+Makefile                         1             21             52            111
+YAML                             1              0             18            107
 -------------------------------------------------------------------------------
-TOTAL                           27            693            649           4588
+TOTAL                           28            721            718           4723
 -------------------------------------------------------------------------------
 ```

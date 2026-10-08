@@ -226,10 +226,10 @@ func TestGetopt(t *testing.T) {
 			"f:h", longs, &bytes.Buffer{})
 
 		if c := g.next(); c != 'f' || g.arg != "mini" {
-			t.Fatalf("got option %q with %q, want 'f' with \"mini\"", c, g.arg)
+			t.Fatalf("got option %q with %q, want 'f' with \"mini\"", rune(c), g.arg)
 		}
 		if c := g.next(); c != optEnd {
-			t.Fatalf("got option %q, want the end", c)
+			t.Fatalf("got option %q, want the end", rune(c))
 		}
 		if args := g.args(); len(args) != 2 || args[0] != "Hi" || args[1] != "there" {
 			t.Errorf("operands = %q, want [Hi there]", args)
@@ -240,10 +240,10 @@ func TestGetopt(t *testing.T) {
 		g := newGetopt([]string{"toilet", "-hfmini"}, "f:h", longs, &bytes.Buffer{})
 
 		if c := g.next(); c != 'h' {
-			t.Fatalf("got %q, want 'h'", c)
+			t.Fatalf("got %q, want 'h'", rune(c))
 		}
 		if c := g.next(); c != 'f' || g.arg != "mini" {
-			t.Fatalf("got %q with %q, want 'f' with \"mini\"", c, g.arg)
+			t.Fatalf("got %q with %q, want 'f' with \"mini\"", rune(c), g.arg)
 		}
 	})
 
@@ -252,13 +252,13 @@ func TestGetopt(t *testing.T) {
 			"f:h", longs, &bytes.Buffer{})
 
 		if c := g.next(); c != 'f' || g.arg != "mini" {
-			t.Fatalf("--font=mini gave %q with %q", c, g.arg)
+			t.Fatalf("--font=mini gave %q with %q", rune(c), g.arg)
 		}
 		if c := g.next(); c != 'f' || g.arg != "big" {
-			t.Fatalf("--fo big gave %q with %q", c, g.arg)
+			t.Fatalf("--fo big gave %q with %q", rune(c), g.arg)
 		}
 		if c := g.next(); c != 'h' {
-			t.Fatalf("--help gave %q", c)
+			t.Fatalf("--help gave %q", rune(c))
 		}
 	})
 
@@ -266,7 +266,7 @@ func TestGetopt(t *testing.T) {
 		g := newGetopt([]string{"toilet", "--", "-f", "x"}, "f:h", longs, &bytes.Buffer{})
 
 		if c := g.next(); c != optEnd {
-			t.Fatalf("got %q, want the end", c)
+			t.Fatalf("got %q, want the end", rune(c))
 		}
 		if args := g.args(); len(args) != 2 || args[0] != "-f" {
 			t.Errorf("operands = %q, want [-f x]", args)
@@ -277,7 +277,7 @@ func TestGetopt(t *testing.T) {
 		var errs bytes.Buffer
 		g := newGetopt([]string{"toilet", "-z"}, "f:h", longs, &errs)
 		if c := g.next(); c != optBad {
-			t.Fatalf("unknown option gave %q", c)
+			t.Fatalf("unknown option gave %q", rune(c))
 		}
 		if !strings.Contains(errs.String(), "invalid option -- 'z'") {
 			t.Errorf("message = %q", errs.String())
@@ -286,7 +286,7 @@ func TestGetopt(t *testing.T) {
 		errs.Reset()
 		g = newGetopt([]string{"toilet", "-f"}, "f:h", longs, &errs)
 		if c := g.next(); c != optBad {
-			t.Fatalf("missing argument gave %q", c)
+			t.Fatalf("missing argument gave %q", rune(c))
 		}
 		if !strings.Contains(errs.String(), "requires an argument") {
 			t.Errorf("message = %q", errs.String())
@@ -296,7 +296,7 @@ func TestGetopt(t *testing.T) {
 		errs.Reset()
 		g = newGetopt([]string{"toilet", "-ü"}, "f:h", longs, &errs)
 		if c := g.next(); c != optBad {
-			t.Fatalf("non-ASCII option gave %q", c)
+			t.Fatalf("non-ASCII option gave %q", rune(c))
 		}
 		if got := errs.String(); !strings.Contains(got, "-- '\xc3'") {
 			t.Errorf("message = %q, want the raw byte", got)

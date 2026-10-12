@@ -1,4 +1,4 @@
-github.com/0magnet/img2txt-go v0.0.0 h1:k+3AFB5j1HhXDqcGsZMW+6/CDl8ezAmaD8D0MeOkrW4=
-github.com/0magnet/img2txt-go v0.0.0/go.mod h1:LpURwrbNPAy3CrbhLgVw4ROogaDCRmpu7ZKQwNt2v7Q=
+github.com/0magnet/img2txt-go v0.0.1-0.20261010111608-9ac2cd47b853 h1:ox1r7x9mnA35QeRZSSypXwsUJ3CLOeollEnr+klBFYY=
+github.com/0magnet/img2txt-go v0.0.1-0.20261010111608-9ac2cd47b853/go.mod h1:M/nZ3W+0x5ti9fZDs6Cx+6eTZnwVdGMjeMuRDmOB5es=
 golang.org/x/image v0.47.0 h1:za/8gVz++PPZqmZJBNSISICN5Rrj5zixP/8K++fgmqo=
 golang.org/x/image v0.47.0/go.mod h1:IkN5o4A7vq55vXN8FWjjnhg9Rs2GOtffqsSi9mWAKYE=
